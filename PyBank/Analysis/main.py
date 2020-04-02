@@ -20,3 +20,8 @@ profit/loss_change = []
         #Calculate the totals
         total_months = total_months + 1
         total_proift/loss = total_proift/loss + int(row["Profit/Losses"])
+        #print(row)
+
+        # Keep track of changes
+        profit/loss_change = int(row["Profit/Losses"]) - prev_profit/loss
+        # print(profit/loss_change)
