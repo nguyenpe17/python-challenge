@@ -1,7 +1,8 @@
 import csv
 
+# Load files
 file_load = "/Users/petr/Desktop/Data_School/python/python-challenge/PyBank/Resources/03-Python_HW_Instructions_PyBank_Resources_budget_data.csv"
-#file_analysis = "/Users/petr/Desktop/Data_School/python/python-challenge/PyBank/Analysis/Profit_Analysis.docx"
+file_analysis = "/Users/petr/Desktop/Data_School/python/python-challenge/PyBank/Analysis/budget_analysis.rtf"
 
 # Set Variables
 total_months = 0
@@ -45,5 +46,4 @@ with open(file_load,'r') as csvfile:
 
         # Add to the profit_loss_change list
         profit_loss_change.append(int(row["Profit/Losses"]))
-        
         
