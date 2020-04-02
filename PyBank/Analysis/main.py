@@ -41,7 +41,7 @@ with open(file_load,'r') as csvfile:
             greatest_increase[0] = row["Date"]
 
         if (profit_loss_change < greatest_decrease[1]):
-            greatest_decrease[1] = pc
+            greatest_decrease[1] = profit_loss_change
             greatest_decrease[0] = row["Date"]
 
         # Add to the profit_loss_change list
