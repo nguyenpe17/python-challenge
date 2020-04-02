@@ -47,3 +47,17 @@ with open(file_load,'r') as csvfile:
         # Add to the profit_loss_change list
         profit_loss_change.append(int(row["Profit/Losses"]))
         
+    # Set Profit/Losses Average
+    profit_loss_avg = sum(profit_loss_change) / len(profit_loss_change)
+
+# Show Results
+print()
+print()
+print()
+print("Financial Analysis")
+print("------------------------")
+print("Total Months: " + str(total_months))
+print("Total Revenue: " + "$" + str(total_revenue))
+print("Average Change: " + "$" + str(round(sum(revenue_changes) / len(revenue_changes),2)))
+print("Greatest Increase: " + str(greatest_increase[0]) + " ($" +  str(greatest_increase[1]) + ")") 
+print("Greatest Decrease: " + str(greatest_decrease[0]) + " ($" +  str(greatest_decrease[1]) + ")")
