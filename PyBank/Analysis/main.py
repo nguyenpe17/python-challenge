@@ -14,3 +14,9 @@ greatest_decrease = ["", 9999999]
 
 profit/loss_change = []
 
+    # Lopp through all the rows of data collected
+    for row in reader:
+
+        #Calculate the totals
+        total_months = total_months + 1
+        total_proift/loss = total_proift/loss + int(row["Profit/Losses"])
