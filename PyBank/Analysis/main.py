@@ -9,8 +9,8 @@ total_proift_loss = 0
 
 prev_profit_loss = 0
 profit_loss_change = 0
-greatest_increase = ["", 0]
-greatest_decrease = ["", 9999999]
+profit_increase = ["", 0]
+profit_decrease = ["", 9999999]
 
 profit_loss_change = []
 
@@ -31,4 +31,10 @@ for row in csvreader:
         print(profit_loss_change)
 
         # Reset Profit/Losses value
-        
+        prev_profit_loss = int(row["Profit/Losses"])
+        print(row)
+
+        # Identify change
+        if (profit_loss_change > profit_increase[1]):
+            profit_increase[1] = profit_loss_change
+            profit_increase[0] = row["Date"]
