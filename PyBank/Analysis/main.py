@@ -9,14 +9,14 @@ total_proift_loss = 0
 
 prev_profit_loss = 0
 profit_loss_change = 0
-profit_increase = ["", 0]
-profit_decrease = ["", 9999999]
+greatest_increase = ["", 0]
+greatest_decrease = ["", 9999999]
 
 profit_loss_change = []
 
 # read file    
 with open(file_load,'r') as csvfile: 
-    csvreader = csv.reader(csvfile)
+    csvreader = csv.DictReader(csvfile)
 
 # Loop through all the rows of data collected
     for row in csvreader:
@@ -34,7 +34,16 @@ with open(file_load,'r') as csvfile:
         prev_profit_loss = int(row["Profit/Losses"])
         print(row)
 
-        # Identify change
-        if (profit_loss_change > profit_increase[1]):
-            profit_increase[1] = profit_loss_change
-            profit_increase[0] = row["Date"]
+        # Identify the greatest increase
+        if (profit_loss_change > greatest_increase[1]):
+            greatest_increase[1] = profit_loss_change
+            greatest_increase[0] = row["Date"]
+
+        if (profit_loss_change < greatest_decrease[1]):
+            greatest_decrease[1] = pc
+            greatest_decrease[0] = row["Date"]
+
+        # Add to the profit_loss_change list
+        profit_loss_change.append(int(row["Profit/Losses"]))
+        
+        
