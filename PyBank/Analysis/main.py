@@ -1,5 +1,7 @@
 import csv
-file = "/Users/petr/Desktop/Data_School/python/python-challenge/PyBank/Resources/03-Python_HW_Instructions_PyBank_Resources_budget_data.csv"
+
+file_load = "/Users/petr/Desktop/Data_School/python/python-challenge/PyBank/Resources/03-Python_HW_Instructions_PyBank_Resources_budget_data.csv"
+#file_analysis = "/Users/petr/Desktop/Data_School/python/python-challenge/PyBank/Analysis/Profit_Analysis.docx"
 
 # Set Variables
 total_months = 0
@@ -19,7 +21,7 @@ with open(file,'r') as csvfile:
 # Loop through all the rows of data collected
 for row in csvreader:
 
-        #Calculate the totals
+        # Calculate the totals
         total_months = total_months + 1
         total_proift_loss = total_proift_loss + int(row["Profit/Losses"])
         print(row)
@@ -27,3 +29,6 @@ for row in csvreader:
         # Keep track of changes
         profit_loss_change = int(row["Profit/Losses"]) - prev_profit_loss
         print(profit_loss_change)
+
+        # Reset Profit/Losses value
+        
