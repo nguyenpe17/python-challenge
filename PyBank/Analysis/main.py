@@ -17,8 +17,10 @@ profit_loss_change = []
 
 # read file    
 with open(file_load,'r') as csvfile: 
-    csvreader = csv.DictReader(csvfile)
+    csvreader = csv.reader(csvfile)
 
+    csv_header = next(csvreader)
+    
 # Loop through all the rows of data collected
     for row in csvreader:
 
