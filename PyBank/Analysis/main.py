@@ -15,11 +15,11 @@ profit_decrease = ["", 9999999]
 profit_loss_change = []
 
 # read file    
-with open(file,'r') as csvfile: 
-    csvreader = csv.reader(csvfile,delimiter=",")
+with open(file_load,'r') as csvfile: 
+    csvreader = csv.reader(csvfile)
 
 # Loop through all the rows of data collected
-for row in csvreader:
+    for row in csvreader:
 
         # Calculate the totals
         total_months = total_months + 1
