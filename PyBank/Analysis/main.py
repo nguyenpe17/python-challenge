@@ -6,7 +6,7 @@ file_analysis = "/Users/petr/Desktop/Data_School/python/python-challenge/PyBank/
 
 # Set Variables
 total_months = 0
-total_proift_loss = 0
+total_profit_loss = 0
 
 prev_profit_loss = 0
 profit_loss_change = 0
@@ -20,37 +20,39 @@ with open(file_load,'r') as csvfile:
     csvreader = csv.reader(csvfile)
 
     csv_header = next(csvreader)
-    
+
 # Loop through all the rows of data collected
     for row in csvreader:
 
+        # Set Variable
+        monthpnl = int(row[1])
+
         # Calculate the totals
-        total_months = total_months + 1
-        total_proift_loss = total_proift_loss + int(row["Profit/Losses"])
-        print(row)
+        total_months += 1
+        total_profit_loss += monthpnl
 
         # Keep track of changes
-        profit_loss_change = int(row["Profit/Losses"]) - prev_profit_loss
-        print(profit_loss_change)
+        profit_loss_change = monthpnl - prev_profit_loss
+        
 
-        # Reset Profit/Losses value
-        prev_profit_loss = int(row["Profit/Losses"])
-        print(row)
+    #     # Reset Profit/Losses value
+        prev_profit_loss = monthpnl
+   
 
-        # Identify the greatest increase
+    #     # Identify the greatest increase
         if (profit_loss_change > greatest_increase[1]):
             greatest_increase[1] = profit_loss_change
-            greatest_increase[0] = row["Date"]
+            greatest_increase[0] = row[0]
 
         if (profit_loss_change < greatest_decrease[1]):
             greatest_decrease[1] = profit_loss_change
-            greatest_decrease[0] = row["Date"]
+            greatest_decrease[0] = row[0]
 
-        # Add to the profit_loss_change list
-        profit_loss_change.append(int(row["Profit/Losses"]))
+    #     # Add to the profit_loss_change list
+    #     profit_loss_change.append(int(row["Profit/Losses"]))
         
-    # Set Profit/Losses Average
-    profit_loss_avg = sum(profit_loss_change) / len(profit_loss_change)
+    # # Set Profit/Losses Average
+    # profit_loss_avg = sum(profit_loss_change) / len(profit_loss_change)
 
 # Show Results
 print()
@@ -59,7 +61,7 @@ print()
 print("Financial Analysis")
 print("------------------------")
 print("Total Months: " + str(total_months))
-print("Total Revenue: " + "$" + str(total_revenue))
-print("Average Change: " + "$" + str(round(sum(revenue_changes) / len(revenue_changes),2)))
+print("Total Profit/Losses: " + "$" + str(total_profit_loss))
+# print("Average Change: " + "$" + str(round(sum(revenue_changes) / len(revenue_changes),2)))
 print("Greatest Increase: " + str(greatest_increase[0]) + " ($" +  str(greatest_increase[1]) + ")") 
 print("Greatest Decrease: " + str(greatest_decrease[0]) + " ($" +  str(greatest_decrease[1]) + ")")
