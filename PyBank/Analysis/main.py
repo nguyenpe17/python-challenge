@@ -1,7 +1,5 @@
 import csv
 file = "/Users/petr/Desktop/Data_School/python/python-challenge/PyBank/Resources/03-Python_HW_Instructions_PyBank_Resources_budget_data.csv"
-with open(file,'r') as csvfile: 
-    csvreader = csv.reader(csvfile,delimiter=",")
 
 # Set Variables
 total_months = 0
@@ -14,8 +12,12 @@ greatest_decrease = ["", 9999999]
 
 profit_loss_change = []
 
-    # Lopp through all the rows of data collected
-for row in reader:
+# read file    
+with open(file,'r') as csvfile: 
+    csvreader = csv.reader(csvfile,delimiter=",")
+
+# Loop through all the rows of data collected
+for row in csvreader:
 
         #Calculate the totals
         total_months = total_months + 1
