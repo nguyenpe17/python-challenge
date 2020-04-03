@@ -17,4 +17,13 @@ with open(file_load,'r') as csvfile:
     csvreader = csv.reader(csvfile)
 
     csv_header = next(csvreader)
-    print(csv_header)
+
+# Loop through all the rows of data collected
+    for row in csvreader:
+        
+        # Set Variable
+        candiatepoll = (row[2])
+
+         # Calculate the votes
+        votes += 1
+        total_candidates += candiatepoll
