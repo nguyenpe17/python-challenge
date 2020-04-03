@@ -2,7 +2,7 @@ import csv
 
 # Load files
 file_load = "/Users/petr/Desktop/Data_School/python/python-challenge/PyPoll/Resources/03-Python_HW_Instructions_PyPoll_Resources_election_data.csv"
-poll_analysis = "/Users/petr/Desktop/Data_School/python/python-challenge/PyPank/Analysis/poll_analysis.rtf"
+poll_analysis = "/Users/petr/Desktop/Data_School/python/python-challenge/PyPoll/Analysis/poll_analysis.rtf"
 
 # Set variables
 votes = 0
@@ -24,6 +24,23 @@ with open(file_load,'r') as csvfile:
         # Set Variable
         candiatepoll = (row[2])
 
-         # Calculate the votes
+         # Calculate votes
         votes += 1
         total_candidates += candiatepoll
+
+        if candiatepoll not in candidate_options:
+
+            candidate_options.append(candiatepoll)
+
+            candidate_votes[candiatepoll] = 1
+
+        else:
+            candidate_votes[candiatepoll] = candidate_votes[candiatepoll] + 1
+    
+    print()
+    print()
+    print()
+    print("Election Results")
+    print("-------------------------")
+    print("Total Votes " + str(votes))
+    print("-------------------------")
