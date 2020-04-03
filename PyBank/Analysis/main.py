@@ -2,7 +2,7 @@ import csv
 
 # Load files
 file_load = "/Users/petr/Desktop/Data_School/python/python-challenge/PyBank/Resources/03-Python_HW_Instructions_PyBank_Resources_budget_data.csv"
-file_analysis = "/Users/petr/Desktop/Data_School/python/python-challenge/PyBank/Analysis/budget_analysis.rtf"
+file_analysis = "/Users/petr/Desktop/Data_School/python/python-challenge/PyBank/Analysis/budget_analysis.txt"
 
 # Set Variables
 total_months = 0
@@ -63,18 +63,18 @@ print("Financial Analysis")
 print("------------------------")
 print("Total Months: " + str(total_months))
 print("Total Profit/Losses: " + "$" + str(total_profit_loss))
-print("Average Change: " + "$" + str(round(sum(profit_loss_change) / len(profit_loss_change),2)))
+#print("Average Change: " + "$" + str(round(sum(profit_loss_change) / len(profit_loss_change),2)))
 print("Greatest Increase: " + str(greatest_increase[0]) + " ($" +  str(greatest_increase[1]) + ")") 
 print("Greatest Decrease: " + str(greatest_decrease[0]) + " ($" +  str(greatest_decrease[1]) + ")")
 
 # Show Results in Text
-with open(file_analysis, "w") as rdf_file
-    rdf_file.write("Total Months: " + str(total_months))
-    rdf_file.write("/n")
-    rdf_file.write("Total Profit/Losses: " + "$" + str(total_profit_loss))
-    rdf_file.write("/n")
-    rdf_file.write("Average Change: " + "$" + str(round(sum(profit_loss_change) / len(profit_loss_change),2)))
-    rdf_file.write("/n")
-    rdf_file.write("Greatest Increase: " + str(greatest_increase[0]) + " ($" +  str(greatest_increase[1]) + ")") 
-    rdf_file.write("/n")
-    rdf_file.write("Greatest Decrease: " + str(greatest_decrease[0]) + " ($" +  str(greatest_decrease[1]) + ")")
+with open(file_analysis, "w") as txt_file:
+    txt_file.write("Total Months: " + str(total_months))
+    txt_file.write("/n")
+    txt_file.write("Total Profit/Losses: " + "$" + str(total_profit_loss))
+    txt_file.write("/n")
+    #txt_file.write("Average Change: " + "$" + str(round(sum(profit_loss_change) / len(profit_loss_change),2)))
+    txt_file.write("/n")
+    txt_file.write("Greatest Increase: " + str(greatest_increase[0]) + " ($" +  str(greatest_increase[1]) + ")") 
+    txt_file.write("/n")
+    txt_file.write("Greatest Decrease: " + str(greatest_decrease[0]) + " ($" +  str(greatest_decrease[1]) + ")")
