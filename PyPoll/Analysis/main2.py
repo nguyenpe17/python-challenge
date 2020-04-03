@@ -22,7 +22,7 @@ with open(file_load,'r') as csvfile:
     for row in csvreader:
         
          # Set Variable + Calculate votes
-        candidatespoll = int(row[2])
+        candidatespoll = (row[2])
         votes += 1
         total_candidates = candidatespoll
 
