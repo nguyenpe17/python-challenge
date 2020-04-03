@@ -21,21 +21,19 @@ with open(file_load,'r') as csvfile:
 # Loop through all the rows of data collected
     for row in csvreader:
         
-        # Set Variable
-        candiatepoll = (row[2])
-
-         # Calculate votes
+         # Set Variable + Calculate votes
+        candidatespoll += int(row[2])
         votes += 1
-        total_candidates += candiatepoll
+        total_candidates += candidatespoll
 
-        if candiatepoll not in candidate_options:
+        if candidatespoll not in candidate_options:
 
-            candidate_options.append(candiatepoll)
+            candidate_options.append(candidatespoll)
 
-            candidate_votes[candiatepoll] = 1
+            candidate_votes[candidatespoll] = 1
 
         else:
-            candidate_votes[candiatepoll] = candidate_votes[candiatepoll] + 1
+            candidate_votes[candidatespoll] = candidate_votes[candidatespoll] + 1
     
     print()
     print()
