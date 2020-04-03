@@ -69,6 +69,8 @@ print("Greatest Decrease: " + str(greatest_decrease[0]) + " ($" +  str(greatest_
 
 # Show Results in Text
 with open(file_analysis, "w") as txt_file:
+    txt_file.write("Financial Analysis")
+    txt_file.write("")
     txt_file.write("Total Months: " + str(total_months))
     txt_file.write("/n")
     txt_file.write("Total Profit/Losses: " + "$" + str(total_profit_loss))
