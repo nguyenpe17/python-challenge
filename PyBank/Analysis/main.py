@@ -35,11 +35,11 @@ with open(file_load,'r') as csvfile:
         profit_loss_change = monthpnl - prev_profit_loss
         
 
-    #     # Reset Profit/Losses value
+         # Reset Profit/Losses value
         prev_profit_loss = monthpnl
    
 
-    #     # Identify the greatest increase
+         # Identify the greatest increase
         if (profit_loss_change > greatest_increase[1]):
             greatest_increase[1] = profit_loss_change
             greatest_increase[0] = row[0]
@@ -49,10 +49,11 @@ with open(file_load,'r') as csvfile:
             greatest_decrease[0] = row[0]
 
          # Add to the profit_loss_change list
-         profit_loss_change.append(int(row["Profit/Losses"]))
+            # profit_loss_change.append(monthpnl)
         
         # Set Profit/Losses Average
-        profit_loss_avg = sum(profit_loss_change) / len(profit_loss_change)
+            # profit_loss_avg = sum(profit_loss_change) / len(profit_loss_change)
+    
 
 # Show Results
 print()
@@ -62,6 +63,18 @@ print("Financial Analysis")
 print("------------------------")
 print("Total Months: " + str(total_months))
 print("Total Profit/Losses: " + "$" + str(total_profit_loss))
-print("Average Change: " + "$" + str(round(sum(revenue_changes) / len(revenue_changes),2)))
+print("Average Change: " + "$" + str(round(sum(profit_loss_change) / len(profit_loss_change),2)))
 print("Greatest Increase: " + str(greatest_increase[0]) + " ($" +  str(greatest_increase[1]) + ")") 
 print("Greatest Decrease: " + str(greatest_decrease[0]) + " ($" +  str(greatest_decrease[1]) + ")")
+
+# Show Results in Text
+with open(file_analysis, "w") as rdf_file
+    rdf_file.write("Total Months: " + str(total_months))
+    rdf_file.write("/n")
+    rdf_file.write("Total Profit/Losses: " + "$" + str(total_profit_loss))
+    rdf_file.write("/n")
+    rdf_file.write("Average Change: " + "$" + str(round(sum(profit_loss_change) / len(profit_loss_change),2)))
+    rdf_file.write("/n")
+    rdf_file.write("Greatest Increase: " + str(greatest_increase[0]) + " ($" +  str(greatest_increase[1]) + ")") 
+    rdf_file.write("/n")
+    rdf_file.write("Greatest Decrease: " + str(greatest_decrease[0]) + " ($" +  str(greatest_decrease[1]) + ")")
