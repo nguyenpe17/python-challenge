@@ -7,6 +7,7 @@ file_analysis = "/Users/petr/Desktop/Data_School/python/python-challenge/PyBank/
 # Set Variables
 total_months = 0
 total_profit_loss = 0
+netmonthlyaverage = 0
 
 prev_profit_loss = 0
 profit_loss_change = 0
@@ -49,7 +50,7 @@ with open(file_load,'r') as csvfile:
             greatest_decrease[0] = row[0]
 
          # Add to the profit_loss_change list
-            # profit_loss_change.append(monthpnl)
+            # profit_loss_change.(monthpnl)
         
         # Set Profit/Losses Average
             # profit_loss_avg = sum(profit_loss_change) / len(profit_loss_change)
@@ -63,19 +64,19 @@ print("Financial Analysis")
 print("------------------------")
 print("Total Months: " + str(total_months))
 print("Total Profit/Losses: " + "$" + str(total_profit_loss))
-#print("Average Change: " + "$" + str(round(sum(profit_loss_change) / len(profit_loss_change),2)))
+# print("Average Change: " + "$" + str(round(sum(profit_loss_change) / len(profit_loss_change),2)))
 print("Greatest Increase: " + str(greatest_increase[0]) + " ($" +  str(greatest_increase[1]) + ")") 
 print("Greatest Decrease: " + str(greatest_decrease[0]) + " ($" +  str(greatest_decrease[1]) + ")")
 
 # Show Results in Text
 with open(file_analysis, "w") as txt_file:
     txt_file.write("Financial Analysis")
-    txt_file.write("")
+    txt_file.write("/n")
     txt_file.write("Total Months: " + str(total_months))
     txt_file.write("/n")
     txt_file.write("Total Profit/Losses: " + "$" + str(total_profit_loss))
     txt_file.write("/n")
-    #txt_file.write("Average Change: " + "$" + str(round(sum(profit_loss_change) / len(profit_loss_change),2)))
+    # txt_file.write("Average Change: " + "$" + str(round(sum(profit_loss_change) / len(profit_loss_change),2)))
     txt_file.write("/n")
     txt_file.write("Greatest Increase: " + str(greatest_increase[0]) + " ($" +  str(greatest_increase[1]) + ")") 
     txt_file.write("/n")
