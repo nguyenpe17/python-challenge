@@ -2,7 +2,7 @@ import csv
 
 # Load files
 file_load = "/Users/petr/Desktop/Data_School/python/python-challenge/PyPoll/Resources/03-Python_HW_Instructions_PyPoll_Resources_election_data.csv"
-poll_analysis = "/Users/petr/Desktop/Data_School/python/python-challenge/PyPoll/Analysis/poll_analysis.rtf"
+poll_analysis = "/Users/petr/Desktop/Data_School/python/python-challenge/PyPoll/Analysis/poll_analysis.txt"
 
 # Set variables
 votes = 0
@@ -28,10 +28,10 @@ with open(file_load,'r') as csvfile:
         votes += 1
         total_candidates = candidatespoll
         # candidate_map[candidatespoll] = candidate_map[candidatespoll] + 1 or 1
-        if candidate_map.get(candidatespoll) is not none:
-            candidate_map[candidatespoll] +=1
-        else:
-            candidate_map.get(candidatespoll,1)
+        # if candidate_map.get(candidatespoll) is not none:
+            # candidate_map[candidatespoll] +=1
+        # else:
+        #     candidate_map.get(candidatespoll,1)
 
 
         if candidatespoll not in candidate_options:
@@ -43,7 +43,6 @@ with open(file_load,'r') as csvfile:
         else:
             candidate_votes[candidatespoll] = candidate_votes[candidatespoll] + 1
     
-    print(candidate_map)
     print()
     print()
     print()
@@ -52,3 +51,11 @@ with open(file_load,'r') as csvfile:
     print("Total Votes " + str(votes))
     print("-------------------------")
 
+# Show Results in Text
+with open(poll_analysis, "w") as txt_file:
+    
+    txt_file.write("Election Results")
+    txt_file.write("\n")
+    txt_file.write("-------------------------")
+    txt_file.write("\n")
+    txt_file.write("Total Votes " + str(votes))
